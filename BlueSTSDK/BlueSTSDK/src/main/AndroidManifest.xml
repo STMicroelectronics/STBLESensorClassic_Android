@@ -30,7 +30,8 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/log_file_path" />
+                android:resource="@xml/log_file_path"
+                tools:replace="android:resource"/>
         </provider>
     </application>
 

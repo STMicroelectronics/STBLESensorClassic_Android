@@ -68,7 +68,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 150
-        versionName '4.20.2'
+        versionName '4.20.1'
         applicationId "com.st.bluemsclassic"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
