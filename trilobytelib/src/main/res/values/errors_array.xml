@@ -10,5 +10,6 @@
         <item>@string/board_timeout_upload_error</item>
         <item>@string/board_generic_upload_error</item>
         <item>@string/app_version_error</item>
+        <item>@string/not_compatible_flows_sequence_error</item>
     </string-array>
 </resources>

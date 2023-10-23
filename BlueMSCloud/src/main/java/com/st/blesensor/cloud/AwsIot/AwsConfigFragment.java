@@ -50,6 +50,7 @@ import android.provider.OpenableColumns;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.textfield.TextInputLayout;
 import android.view.LayoutInflater;
@@ -75,8 +76,6 @@ public class AwsConfigFragment extends Fragment {
     private static final String CONF_PREFERENCE = AwsConfigFragment.class.getCanonicalName();
     private static final String ENDPOINT_KEY = CONF_PREFERENCE+".ENDPOINT";
     private static final String CLIENT_ID_KEY = CONF_PREFERENCE+".DEVICE_ID";
-    private static final String PRIVATE_KEY_URI_KEY = CONF_PREFERENCE+".PRIVATE_KEY_URI";
-    private static final String CERTIFICATE_URI_KEY = CONF_PREFERENCE+".CERTIFICATE_URI";
     private static final int SELECT_PRIVATEKEY_FILE = 2;
     private static final int SELECT_CERTIFICATE_FILE = 1;
     private static final Pattern ENPOINT_MATCHER =
@@ -89,10 +88,7 @@ public class AwsConfigFragment extends Fragment {
 
     private String mClientId=null;
 
-    //location where the certificate file is
-    private Uri mCertificateFile;
-    //location where the private key file is
-    private Uri mPrivateKeyFile;
+    private AWsConfigViewModel mViewModel;
 
 
     public AwsConfigFragment() {
@@ -137,6 +133,10 @@ public class AwsConfigFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root =  inflater.inflate(R.layout.fragment_aws_config, container, false);
+
+        //Retrieve the ViewModel
+        mViewModel = new ViewModelProvider(requireActivity()).get(AWsConfigViewModel.class);
+
         TextInputLayout deviceIdLayout = root.findViewById(R.id.aws_endpointWrapper);
         mEndpointText = deviceIdLayout.getEditText();
         mEndpointText.addTextChangedListener(
@@ -155,39 +155,14 @@ public class AwsConfigFragment extends Fragment {
         mSelectPrivateKey = root.findViewById(R.id.aws_privatekey_button);
         mSelectPrivateKey.setOnClickListener(view ->
                 startActivityForResult(getFileSelectIntent(), SELECT_PRIVATEKEY_FILE));
-        if(savedInstanceState!=null){
-            restoreFileState(savedInstanceState);
+
+        if(mViewModel.getCerticate()!=null){
+            setCertificateFileUri(mViewModel.getCerticate());
         }
-        if(mCertificateFile!=null){
-            setCertificateFileUri(mCertificateFile);
-        }
-        if(mPrivateKeyFile!=null){
-            setPrivateKeyFileUri(mPrivateKeyFile);
+        if(mViewModel.getKey()!=null){
+            setPrivateKeyFileUri(mViewModel.getKey());
         }
         return root;
-    }
-
-    private void restoreFileState(@NonNull Bundle savedState){
-        Uri privateKeyFile = savedState.getParcelable(PRIVATE_KEY_URI_KEY);
-        if(privateKeyFile!=null){
-            setPrivateKeyFileUri(privateKeyFile);
-        }
-
-        Uri certificateKeyFile = savedState.getParcelable(CERTIFICATE_URI_KEY);
-        if(certificateKeyFile!=null){
-            setCertificateFileUri(certificateKeyFile);
-        }
-    }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        if(mPrivateKeyFile!=null){
-            outState.putParcelable(PRIVATE_KEY_URI_KEY,mPrivateKeyFile);
-        }
-        if(mCertificateFile!=null){
-            outState.putParcelable(CERTIFICATE_URI_KEY,mCertificateFile);
-        }
     }
 
     @Override
@@ -237,7 +212,7 @@ public class AwsConfigFragment extends Fragment {
 
     private void setCertificateFileUri(Uri fileUri){
         String fileName = getFileName(fileUri);
-        mCertificateFile = fileUri;
+        mViewModel.setCertificate(fileUri);
         if(fileName!=null)
             mSelectCertificate.setText(fileName);
         else
@@ -246,7 +221,7 @@ public class AwsConfigFragment extends Fragment {
 
     private void setPrivateKeyFileUri(Uri fileUri){
         String fileName = getFileName(fileUri);
-        mPrivateKeyFile = fileUri;
+        mViewModel.setKey(fileUri);
         if(fileName!=null)
             mSelectPrivateKey.setText(fileName);
         else
@@ -279,11 +254,11 @@ public class AwsConfigFragment extends Fragment {
     }
 
     public @Nullable Uri getPrivateKeyFile() {
-        return mPrivateKeyFile;
+        return mViewModel.getKey();
     }
 
     public @Nullable Uri getCertificateFile() {
-        return mCertificateFile;
+        return mViewModel.getCerticate();
     }
 
     public @Nullable String getClientId(){return mClientIdText.getText().toString();}

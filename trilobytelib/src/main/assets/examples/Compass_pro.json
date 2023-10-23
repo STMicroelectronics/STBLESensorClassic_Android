@@ -231,12 +231,7 @@
     "configuration": {
       "powerMode": "LOW_POWER",
       "odr": 60,
-      "filters": {
-    	"lowPass": {
-    		"label": "700",
-    		"value": 1
-    	  }
-      },
+      "filters": {},
       "fullScale": 2,
       "acquisitionTime": 0
       }
@@ -299,10 +294,10 @@
       }
     ],
     "acquisitionTime": 0,
-    "bleMaxOdr": 52,
+    "bleMaxOdr": 60,
     "configuration": {
       "powerMode": "LOW_POWER",
-      "odr": 52,
+      "odr": 60,
       "fullScale": 2000,
       "acquisitionTime": 0
     }

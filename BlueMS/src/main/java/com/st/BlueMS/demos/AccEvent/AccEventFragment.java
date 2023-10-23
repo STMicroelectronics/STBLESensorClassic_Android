@@ -156,10 +156,12 @@ public class AccEventFragment extends BaseDemoFragment implements AdapterView.On
                 return NUCLEO_SUPPORTED_EVENT;
             case SENSOR_TILE_BOX:
             case SENSOR_TILE_BOX_PRO:
+            case SENSOR_TILE_BOX_PROB:
                 return SENSORTILEBOX_SUPPORTED_EVENT;
             case STEVAL_STWINKIT1:
             case STEVAL_STWINKT1B:
             case STWIN_BOX:
+            case STWIN_BOXB:
                 return STWIN_SUPPORTED_EVENT;
             case PROTEUS:
                 return PROTEUS_SUPPORTED_EVENT;
@@ -193,9 +195,11 @@ public class AccEventFragment extends BaseDemoFragment implements AdapterView.On
             case NUCLEO_F446RE:
             case SENSOR_TILE_BOX:
             case SENSOR_TILE_BOX_PRO:
+            case SENSOR_TILE_BOX_PROB:
             case  STEVAL_STWINKIT1:
             case STEVAL_STWINKT1B:
             case STWIN_BOX:
+            case STWIN_BOXB:
                 return DetectableEvent.ORIENTATION;
             default:
                 return DetectableEvent.NONE;

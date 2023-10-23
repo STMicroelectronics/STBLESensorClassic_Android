@@ -151,6 +151,10 @@ public class BlueSTSDKAdvertiseFilter implements AdvertiseFilter {
             return Node.Type.PROTEUS;
         if (temp == 0x10)
             return Node.Type.STDES_CBMLORABLE;
+        if (temp == 0x11)
+            return Node.Type.SENSOR_TILE_BOX_PROB;
+        if (temp == 0x12)
+            return Node.Type.STWIN_BOXB;
         if (temp == 0x7F)
             return Node.Type.NUCLEO_F401RE;
         if (temp == 0x7E)
@@ -161,7 +165,7 @@ public class BlueSTSDKAdvertiseFilter implements AdvertiseFilter {
             return Node.Type.NUCLEO_F446RE;
         if (temp == 0x80)
             return Node.Type.NUCLEO;
-        if (temp >= 0x81 && temp <= 0x8A) //to be Checked
+        if (temp >= 0x81 && temp <= 0x8A)
             return Node.Type.WB_BOARD;
         if (temp >= 0x8B && temp <= 0x8C)
             return Node.Type.WBA_BOARD;

@@ -76,7 +76,8 @@
   {
     "sensorId": "S3",
     "board_compatibility" : [
-		  "SENSOR_TILE_BOX_PRO"
+		  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
         ],
     "values": [
 	  {
@@ -445,7 +446,8 @@
   {
     "sensorId": "S4",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "values": [
 	  {
@@ -744,7 +746,8 @@
   {
     "sensorId": "S5",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "values": [
 	  {

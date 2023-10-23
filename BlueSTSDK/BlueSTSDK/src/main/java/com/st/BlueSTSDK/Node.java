@@ -161,8 +161,12 @@ public class Node{
         ASTRA1,
         /** SensorTile.Box PRO */
         SENSOR_TILE_BOX_PRO,
+        /** SensorTile.Box PROB */
+        SENSOR_TILE_BOX_PROB,
         /** STWIN.BOX */
         STWIN_BOX,
+        /** STWIN.BOXB */
+        STWIN_BOXB,
         /** Proteus */
         PROTEUS,
         /** STDES-CBMLoRaBLE */
@@ -294,11 +298,9 @@ public class Node{
             super.onMtuChanged(gatt, mtu, status);
             if(status==BluetoothGatt.GATT_SUCCESS){
                 updateMtu(mtu);
-                Log.e(TAG,"on MTU Changed ("+mtu+") BluetoothGatt Callback SUCCESS!!!");
             }else{
                 //if fail we use the last value
                 updateMtu(mLastMtu);
-                Log.e(TAG,"on MTU Changed BluetoothGatt Callback FAIL! Last MTU"+mtu);
             }
         }
 
@@ -758,7 +760,7 @@ public class Node{
                 Log.e(TAG,"Write notification and last write operation are on different char: "
                         +out.characteristic.getUuid() +" vs "+characteristic.getUuid());
             }else {
-                //Log.d(TAG, "onCharacteristicWrite: "+mCharacteristicWriteQueue.size()+" success: "+(status == BluetoothGatt.GATT_SUCCESS));  //FastFOTA
+                Log.d(TAG, "onCharacteristicWrite: "+mCharacteristicWriteQueue.size()+" success: "+(status == BluetoothGatt.GATT_SUCCESS));  //FastFOTA
             }
             boolean writeSuccess = status == BluetoothGatt.GATT_SUCCESS;
             if (mDebugConsole != null &&
@@ -1964,6 +1966,7 @@ public class Node{
                             if(mConnection!=null &&  isConnected()&& ! isPairing()) {
                                 //set the value to write and write it
                                 cmd.characteristic.setValue(cmd.data);
+                                Log.i("FlowTmp","cmd.data="+Arrays.toString(cmd.data));
                                 if (!mConnection.writeCharacteristic(cmd.characteristic)) {
                                     mBackGroundHandler.postDelayed(writeChar, RETRY_COMMAND_DELAY_MS);
                                 }

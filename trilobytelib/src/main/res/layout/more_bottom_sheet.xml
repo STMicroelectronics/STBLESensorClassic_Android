@@ -166,6 +166,43 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:background="@color/subTitleColor"/>
+
+    <LinearLayout
+        android:id="@+id/open_stm_json"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/half_padding">
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@color/subTitleColor"
+            app:srcCompat="@drawable/ic_book"/>
+
+        <TextView
+            style="@style/Text.Subtitle.Bold"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/default_padding"
+            android:text="@string/stm_json"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:tint="@color/subTitleColor"
+            app:srcCompat="@drawable/ic_right_arrow"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
         android:layout_marginBottom="50dp"
         android:background="@color/subTitleColor"/>
 

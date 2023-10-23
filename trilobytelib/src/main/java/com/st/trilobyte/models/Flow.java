@@ -19,6 +19,10 @@ public class Flow implements Serializable {
 
     private String category;
 
+    private Flow expression=null;
+
+    private List<Flow> statements = new ArrayList<>();
+
     private List<String> board_compatibility = new ArrayList<>();
 
     private String description;
@@ -50,6 +54,10 @@ public class Flow implements Serializable {
     }
 
     public String getCategory() { return category; }
+
+    public Flow getExpression() { return expression; }
+
+    public List<Flow> getStatements() {return statements;}
 
     public List<String> getBoard_compatibility() { return board_compatibility; }
 

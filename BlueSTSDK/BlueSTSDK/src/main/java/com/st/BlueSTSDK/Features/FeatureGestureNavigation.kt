@@ -16,10 +16,10 @@ class FeatureGestureNavigation constructor(n: Node) :
 
     enum class NavigationGesture(val value: Int) {
         UNDEFINED(0),
-        SWYPE_LEFT_TO_RIGHT(1),
-        SWYPE_RIGHT_TO_LEFT(2),
-        SWYPE_UP_TO_DOWN(3),
-        SWYPE_DOWN_TO_UP(4),
+        SWIPE_LEFT_TO_RIGHT(1),
+        SWIPE_RIGHT_TO_LEFT(2),
+        SWIPE_UP_TO_DOWN(3),
+        SWIPE_DOWN_TO_UP(4),
         SINGLE_PRESS(5),
         DOUBLE_PRESS(6),
         TRIPLE_PRESS(7),

@@ -21,8 +21,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:itemIconTint="@drawable/nav_item_color_state"
+            app:itemPaddingBottom="4dp"
+            app:itemPaddingTop="4dp"
             app:itemTextColor="@drawable/nav_item_color_state"
-            app:menu="@menu/navigation_menu"/>
+            app:menu="@menu/navigation_menu" />
 
     </LinearLayout>
 

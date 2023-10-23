@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -1246,11 +1245,19 @@ public class FlowBuilderSensorOption extends BuilderFragment {
 
             try
             {
-                while ((myDataRow = myReader.readLine()) != null)
-                {
+                while ((myDataRow = myReader.readLine()) != null) {
                     // Check steval is correct
+                    if (mBoard == Node.Type.SENSOR_TILE_BOX) {
                     if (myDataRow.contains("LSM6DSOX")) {
                         steval_supported = true;
+                        }
+                    } else if ((mBoard == Node.Type.SENSOR_TILE_BOX_PRO)|| (mBoard == Node.Type.SENSOR_TILE_BOX_PROB)) {
+                        if (myDataRow.contains("LSM6DSV16X")) {
+                            steval_supported = true;
+                        }
+                    } else {
+                        //It should not happen... but just in order to be sure...
+                        steval_supported = false;
                     }
                     // MLC labels in ucf header
                     if (myDataRow.contains("<MLC") && myDataRow.contains("_SRC>")) {
@@ -1351,7 +1358,11 @@ public class FlowBuilderSensorOption extends BuilderFragment {
             }
         }
         else {
-            DialogHelper.showDialog(getActivity(), getString(R.string.ucf_file_steval_unsupported), null);
+            if (mBoard == Node.Type.SENSOR_TILE_BOX) {
+                DialogHelper.showDialog(getActivity(), getString(R.string.ucf_file_steval_mksbox1v1_unsupported), null);
+            } else {
+                DialogHelper.showDialog(getActivity(), getString(R.string.ucf_file_steval_mkboxpro_unsupported), null);
+            }
         }
     }
 
@@ -1476,6 +1487,8 @@ public class FlowBuilderSensorOption extends BuilderFragment {
                 final EditText customOdrEditText = getView().findViewById(R.id.custom_odr_value);
                 customOdrEditText.removeTextChangedListener(customOdrTextWatcher);
 
+                final TextView bleOutAvailable = getView().findViewById(R.id.odr_ble_out_available);
+
                 if (hasCustomOdr) {
 
                     if (mConfiguration.getOneShotTime() != null) {
@@ -1518,6 +1531,15 @@ public class FlowBuilderSensorOption extends BuilderFragment {
                     @Override
                     public void onItemSelected(final AdapterView<?> adapterView, final View view, final int position, final long l) {
                         double newValue = selectedMode.getOdrs().get(position);
+                        if(mSensor.getBleMaxOdr()!=null) {
+                            if (newValue > mSensor.getBleMaxOdr()) {
+                                bleOutAvailable.setVisibility(View.VISIBLE);
+                            } else {
+                                bleOutAvailable.setVisibility(View.GONE);
+                            }
+                        } else {
+                            bleOutAvailable.setVisibility(View.GONE);
+                        }
                         if (mConfiguration.getOdr() != newValue) {
                             mConfiguration.setOdr(newValue);
                             mConfiguration.getFilters().lowPass = null;

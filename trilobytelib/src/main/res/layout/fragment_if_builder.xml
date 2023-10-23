@@ -87,12 +87,12 @@
                 android:id="@+id/save_flow_imageview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:tint="@color/widgetCompletedHeaderBgColor"
+                app:tint="@color/subTitleColor"
                 app:srcCompat="@drawable/ic_done"/>
 
             <TextView
                 android:id="@+id/save_flow_textview"
-                style="@style/Text.Bold.LightBlue"
+                style="@style/Text.Bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/default_padding"

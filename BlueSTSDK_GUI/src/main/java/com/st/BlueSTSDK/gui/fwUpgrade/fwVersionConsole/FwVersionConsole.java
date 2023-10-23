@@ -83,7 +83,9 @@ public abstract  class FwVersionConsole {
             case B_U585I_IOT02A:
             case ASTRA1:
             case SENSOR_TILE_BOX_PRO:
+            case SENSOR_TILE_BOX_PROB:
             case STWIN_BOX:
+            case STWIN_BOXB:
             case PROTEUS:
             case STDES_CBMLORABLE:
                 return new FwVersionConsoleNucleo(debug);

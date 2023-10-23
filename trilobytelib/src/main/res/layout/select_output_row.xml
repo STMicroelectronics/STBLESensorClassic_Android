@@ -21,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_margin"
-        tools:text="Temperature sensor" />
+        tools:text="Temperature sensor"
+        android:layout_marginLeft="@dimen/default_margin" />
 
 </LinearLayout>

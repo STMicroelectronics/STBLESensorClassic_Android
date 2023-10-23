@@ -1,12 +1,14 @@
 package com.st.trilobyte.ui.fragment.dialog
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.DialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
+import com.google.gson.GsonBuilder
 import com.st.BlueSTSDK.Manager
 import com.st.BlueSTSDK.Node
 import com.st.BlueSTSDK.gui.NodeConnectionService
@@ -111,9 +113,12 @@ class UploadDialogFragment : DialogFragment() {
 
         val data = when (Session.expression) {
             null -> DeviceFlow.getBoardStream(Session.selectedFlows!!)
-            else -> DeviceIfStatement.getBoardStream(Session.expression!!, Session.selectedFlows!!)
+            else -> {
+                DeviceIfStatement.getBoardStream(Session.expression!!, Session.selectedFlows!!)
+            }
         }
 
+        Log.i("FlowUpload","DataSent=$data")
         // compress data
         val data_gzip = gzip(data)
 

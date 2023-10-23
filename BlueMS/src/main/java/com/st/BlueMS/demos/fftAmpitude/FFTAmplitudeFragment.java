@@ -184,7 +184,7 @@ public class FFTAmplitudeFragment extends BaseDemoFragment {
         inflater.inflate(R.menu.menu_fft_amplitude,menu);
         MenuItem FFTSettingsItem = menu.findItem(R.id.menu_fft_amplitude_settings);
         Node node = getNode();
-        if(node!=null && ((node.getType() == Node.Type.SENSOR_TILE_BOX) || (node.getType() == Node.Type.SENSOR_TILE_BOX_PRO))){
+        if(node!=null && ((node.getType() == Node.Type.SENSOR_TILE_BOX) || (node.getType() == Node.Type.SENSOR_TILE_BOX_PRO)  || (node.getType() == Node.Type.SENSOR_TILE_BOX_PROB))){
             FFTSettingsItem.setVisible(false);
         }
         super.onCreateOptionsMenu(menu, inflater);

@@ -44,7 +44,8 @@ public class MoreSheetDialogFragment extends BottomSheetDialogFragment {
 
     static {
         linksToBoard.put(Node.Type.SENSOR_TILE_BOX, "https://www.st.com/SensorTilebox");
-        linksToBoard.put(Node.Type.SENSOR_TILE_BOX_PRO, "https://www.st.com/SensorTilebox-Pro");
+        linksToBoard.put(Node.Type.SENSOR_TILE_BOX_PRO, "https://www.st.com/en/evaluation-tools/steval-mkboxpro.html");
+        linksToBoard.put(Node.Type.SENSOR_TILE_BOX_PROB, "https://www.st.com/en/evaluation-tools/steval-mkboxpro.html");
     }
 
     @Nullable
@@ -59,7 +60,7 @@ public class MoreSheetDialogFragment extends BottomSheetDialogFragment {
         TextView boardName = view.findViewById(R.id.open_about_layout_text);
         if (mBoard == Node.Type.SENSOR_TILE_BOX) {
             boardName.setText(getText(R.string.about_sensortile_box));
-        } else if (mBoard == Node.Type.SENSOR_TILE_BOX_PRO) {
+        } else if ((mBoard == Node.Type.SENSOR_TILE_BOX_PRO) || (mBoard == Node.Type.SENSOR_TILE_BOX_PROB)){
             boardName.setText(getText(R.string.about_sensortile_box_pro));
         } else {
             boardName.setText("Board Not Supported");
@@ -99,6 +100,18 @@ public class MoreSheetDialogFragment extends BottomSheetDialogFragment {
                 openUrl("https://www.st.com/");
             }
         });
+
+        if(mBoard!=Node.Type.SENSOR_TILE_BOX) {
+            view.findViewById(R.id.open_stm_json).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View view) {
+                    openUrl("https://raw.githubusercontent.com/STMicroelectronics/appconfig/release/bluestsdkv2/custom/steval_mkboxpro/DefaultFw_0_9_0.json");
+                }
+            });
+        } else {
+            view.findViewById(R.id.open_stm_json).setVisibility(View.GONE);
+        }
+
     }
 
     private void openUrl(String url) {

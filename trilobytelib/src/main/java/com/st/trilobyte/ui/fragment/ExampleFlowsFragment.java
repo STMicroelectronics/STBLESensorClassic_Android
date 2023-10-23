@@ -118,8 +118,12 @@ public class ExampleFlowsFragment extends Fragment {
             @Override
             public void upload(final Flow flow) {
                 if (mFlowListener != null) {
+                    if((flow.getExpression()!=null) && (flow.getStatements()!=null)) {
+                        mFlowListener.uploadFlows(flow.getStatements().get(0).getFlows(),flow.getExpression().getFlows().get(0));
+                    } else {
                     mFlowListener.uploadFlows(Collections.singletonList(flow));
                 }
+            }
             }
 
             @Override
@@ -143,7 +147,9 @@ public class ExampleFlowsFragment extends Fragment {
         Bundle bundle = new Bundle();
         bundle.putSerializable(ViewFlowDetailActivity.EXTRA_FLOW, flow);
         bundle.putSerializable(ViewFlowDetailActivity.EXTRA_BOARD_TYPE, mBoard);
-        bundle.putBoolean(ViewFlowDetailActivity.CAN_BE_EDITABLE, false);
+
+        bundle.putBoolean(ViewFlowDetailActivity.CAN_BE_EDITABLE, flow.getExpression() != null);
+
         Intent intent = new Intent(getContext(), ViewFlowDetailActivity.class);
         intent.putExtras(bundle);
         startActivityForResult(intent, SHOW_FLOW_DETAIL_REQ_CODE);

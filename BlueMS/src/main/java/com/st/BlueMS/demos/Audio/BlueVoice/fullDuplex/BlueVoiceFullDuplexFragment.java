@@ -415,9 +415,6 @@ public class BlueVoiceFullDuplexFragment extends BaseDemoFragment {
         startRecSwitch = mRootView.findViewById(R.id.startRecSwitch);
 
         if(checkRecordAudioPermission()) {
-            showIntroductionMessage("To avoid Larsen effect, please keep board and" +
-                    " smartphone at least at 40 cm and control audio volume. Alternatively you can" +
-                    " connect an headset ", requireContext());
             unlockAudioRecording();
         } else {
             requestRecordAudioPermission(REQUEST_MIC_REC_PERMISSION);

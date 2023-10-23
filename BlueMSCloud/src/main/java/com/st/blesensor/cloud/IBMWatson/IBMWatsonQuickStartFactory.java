@@ -49,7 +49,9 @@ import com.st.blesensor.cloud.util.MqttClientUtil;
 import com.st.BlueSTSDK.Feature;
 import com.st.BlueSTSDK.Node;
 
-import org.eclipse.paho.android.service.MqttAndroidClient;
+//import org.eclipse.paho.android.service.MqttAndroidClient;
+import info.mqtt.android.service.Ack;
+import info.mqtt.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttAsyncClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 
@@ -113,7 +115,7 @@ public class IBMWatsonQuickStartFactory extends MqttClientConnectionFactory {
     public CloutIotClient createClient(@NonNull Context ctx) {
         return new MqttClient(
             new MqttAndroidClient(ctx, QUICKSTART_URL,
-                    getDeviceId(mDeviceType, mDeviceName))
+                    getDeviceId(mDeviceType, mDeviceName), Ack.AUTO_ACK)
         );
     }
 

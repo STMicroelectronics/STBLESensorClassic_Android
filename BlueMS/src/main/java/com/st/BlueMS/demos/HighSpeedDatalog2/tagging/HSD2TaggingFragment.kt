@@ -142,8 +142,8 @@ class HSD2TaggingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.annotations.observe(viewLifecycleOwner, Observer {
-            //mTagClassesAdapter.notifyDataSetChanged()
             mTagClassesAdapter.submitList(it)
+            mTagClassesAdapter.notifyDataSetChanged()
         })
 
         viewModel.isSDCardInserted.observe(viewLifecycleOwner, Observer { isSDCardInserted ->

@@ -35,11 +35,15 @@
  */
 package com.st.BlueNRG.fwUpgrade.feature;
 
+import android.util.Log;
+
 import com.st.BlueSTSDK.Features.DeviceTimestampFeature;
 import com.st.BlueSTSDK.Features.Field;
 import com.st.BlueSTSDK.Node;
 
 import com.st.BlueSTSDK.Utils.NumberConversion;
+
+import java.util.Arrays;
 
 public class NewImageTUContentFeature extends DeviceTimestampFeature {
 

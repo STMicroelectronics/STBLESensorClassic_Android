@@ -3,7 +3,8 @@
     "id": "O1",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "File to SD card",
     "icon": "ic_sdcard",
@@ -19,7 +20,8 @@
     "id": "O2",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "Stream to USB",
     "icon": "ic_usb",
@@ -29,7 +31,8 @@
     "id": "O3",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "Stream to Bluetooth",
     "icon": "ic_bluetooth",
@@ -39,7 +42,8 @@
     "id": "O4",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "Save as Input",
     "icon": "ic_input",
@@ -63,7 +67,8 @@
   {
     "id": "O5",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "Save as EXP",
     "icon": "ic_input",

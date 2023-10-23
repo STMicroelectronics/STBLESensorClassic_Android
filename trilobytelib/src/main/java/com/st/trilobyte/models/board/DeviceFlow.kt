@@ -1,5 +1,6 @@
 package com.st.trilobyte.models.board
 
+import android.util.Log
 import com.google.gson.GsonBuilder
 import com.st.trilobyte.helper.FlowHelper
 import com.st.trilobyte.models.Flow
@@ -21,20 +22,22 @@ data class DeviceFlow private constructor(
             val deviceFlows = mutableListOf<DeviceFlow>()
             flows.forEach { deviceFlows.add(transform(it)) }
 
-            return GsonBuilder()
+            val retValue = GsonBuilder()
                     .registerTypeAdapter(Flow::class.java, BoardFlowSerializer)
                     .registerTypeAdapter(Sensor::class.java, BoardSensorSerializer)
                     .create()
                     .toJson(deviceFlows)
+
+            Log.i("FlowTmp", "Flow getBoardStream =$retValue")
+
+            return retValue
         }
 
         fun transform(flow: Flow): DeviceFlow {
-
             val out = DeviceFlow()
             out.version = flow.version
             FlowHelper.extractAllSensorsFromCompositeFlow(flow, out.sensors)
             FlowHelper.extractAllFlowsFromCompositeFlow(flow, out.flows)
-
             out.apply {
                 mergeSensorConfigs()
                 orderSensors()

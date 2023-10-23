@@ -64,6 +64,7 @@ import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
+import com.st.BlueSTSDK.Features.FeatureBeamforming;
 import com.st.BlueSTSDK.Manager;
 import com.st.BlueSTSDK.Node;
 import com.st.BlueSTSDK.Utils.FwVersion;
@@ -231,7 +232,13 @@ public class UploadOtaFileFragment extends Fragment implements UploadOtaFileActi
 
         @IdRes int selected = getSelectedFwType(savedInstance,args) == FirmwareType.BLE_FW ? R.id.otaUpload_bleType : R.id.otaUpload_applicationType;
         mFirmwareTypeView.check(selected);
+        mFirmwareTypeView.setOnCheckedChangeListener(mOnCheckedChangeListener);
     }
+
+    private RadioGroup.OnCheckedChangeListener mOnCheckedChangeListener = (radioGroup, isSelected) -> {
+        int selected = getSelectedFwType();
+        mAddressText.setText((selected == FirmwareType.BLE_FW && mWbBoardType == 1)? "0x11000" : "0x7000");
+    };
 
     private void setupWBType(Bundle savedInstance, Bundle args) {
         Log.i("FW Update","setupWBType");
@@ -433,10 +440,11 @@ public class UploadOtaFileFragment extends Fragment implements UploadOtaFileActi
     }
 
     private @FirmwareType int getSelectedFwType() {
-        if( mFirmwareTypeView.getCheckedRadioButtonId() == R.id.otaUpload_bleType)
+        if( mFirmwareTypeView.getCheckedRadioButtonId() == R.id.otaUpload_bleType) {
             return FirmwareType.BLE_FW;
-        else
+        } else {
             return FirmwareType.BOARD_FW;
+    }
     }
 
     private void startUploadFile(@NonNull Uri selectedFile, @FirmwareType int type,
@@ -523,6 +531,8 @@ public class UploadOtaFileFragment extends Fragment implements UploadOtaFileActi
         } else {
             mStartUploadButton.setEnabled(false);
         }
+        int selected = getSelectedFwType();
+        mAddressText.setText((selected == FirmwareType.BLE_FW && mWbBoardType == 1)? "0x11000" : "0x7000");
     }
 
     @Override

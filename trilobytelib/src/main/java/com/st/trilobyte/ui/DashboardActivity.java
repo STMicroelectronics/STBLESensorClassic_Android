@@ -50,7 +50,7 @@ public class DashboardActivity extends TrilobyteActivity {
 
     private FragmentManager mFragmentManager;
 
-    private Node.Type mBoard;
+    private Node.Type mBoard = Node.Type.SENSOR_TILE_BOX;
 
     private final NavigationDelegate flowListener = new NavigationDelegate() {
 
@@ -67,6 +67,11 @@ public class DashboardActivity extends TrilobyteActivity {
         @Override
         public void uploadFlows(List<Flow> flows) {
             sendToBoard(flows);
+        }
+
+        @Override
+        public void uploadFlows(List<Flow> flows, Flow exp) {
+            sendToBoard(flows,exp);
         }
     };
 
@@ -131,7 +136,18 @@ public class DashboardActivity extends TrilobyteActivity {
     }
 
     private void sendToBoard(List<Flow> flows) {
+        //Log.i("FlowUpload", "setSession 2= "+flows.toString());
         Session.INSTANCE.setSession(flows, null);
+        Intent intent = UploadFlowActivity.Companion.provideIntent(this,mBoard);
+        startActivity(intent);
+    }
+
+    private void sendToBoard(List<Flow> flows, Flow exp) {
+
+        //Log.i("FlowUpload","setSession 2 Flow No= "+flows.toString());
+        //Log.i("FlowUpload","setSession 2Exp No= "+exp.toString());
+
+        Session.INSTANCE.setSession(flows,exp);
         Intent intent = UploadFlowActivity.Companion.provideIntent(this,mBoard);
         startActivity(intent);
     }

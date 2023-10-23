@@ -73,6 +73,8 @@ import com.st.STM32WB.fwUpgrade.FwUpgradeSTM32WBActivity;
 import com.st.STM32WB.fwUpgrade.feature.RebootOTAModeFeature;
 import com.st.STM32WB.fwUpgrade.feature.STM32OTASupport;
 
+import java.io.IOException;
+
 /**
  * Base class for a fragment that have to show a particular demo inside the DemoActivity activity
  * this class will call the {@link com.st.BlueSTSDK.gui.demos.DemoFragment#enableNeededNotification(com.st.BlueSTSDK.Node)}
@@ -95,39 +97,6 @@ public abstract class DemoFragment extends Fragment {
         //run
         updateGui(() -> Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show());
     }//showActivityToast
-
-    /**
-     * Function for displaying one Introduction to each demo
-     *
-     * @param message Message to display
-     * @param context
-     */
-    protected void showIntroductionMessage(final String message, Context context) {
-
-        //Understand if the Introduction was already shown for the current demo
-        final String INTRODUCTION_WAS_SHOWN = getClass().getCanonicalName() + "" + ".IntroductionWasShown";
-        SharedPreferences pref = context.getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
-        boolean introductionWasShown = pref.getBoolean(INTRODUCTION_WAS_SHOWN, false);
-
-        //If the Introduction was not yet shown
-        if (!introductionWasShown) {
-            updateGui(() -> {
-                AlertDialog alertDialog = new AlertDialog.Builder(context).create();
-                //Take the Title from the Demo's Title
-                alertDialog.setTitle(getClass().getAnnotation(DemoDescriptionAnnotation.class).name());
-                //Take the Icon from the Demo's Icon
-                alertDialog.setIcon(getClass().getAnnotation(DemoDescriptionAnnotation.class).iconRes());
-                alertDialog.setMessage(message);
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Close",
-                        (dialog, which) -> dialog.dismiss());
-                alertDialog.show();
-            });
-            //Save the flag on Shared Preference
-            SharedPreferences.Editor editor = pref.edit();
-            editor.putBoolean(INTRODUCTION_WAS_SHOWN, true);
-            editor.apply();
-        }
-    }
 
     /**
      * state of the demo, if it is running or not -> if the fragment is visualized or not

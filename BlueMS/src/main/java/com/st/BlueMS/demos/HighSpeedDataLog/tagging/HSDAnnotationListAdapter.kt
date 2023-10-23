@@ -86,7 +86,7 @@ internal class HSDAnnotationListAdapter(private val mCallback: AnnotationInterac
             currentData = annotation
 
             tagType.setText(annotation.tagType)
-            tagLabel.setText(annotation.label)
+            tagLabel.text = annotation.label
 
             if(annotation.pinDesc!=null){
                 tagDescription.visibility = View.VISIBLE
@@ -127,9 +127,5 @@ internal class HSDAnnotationListAdapter(private val mCallback: AnnotationInterac
                 mCallback.onAnnotationDeselected(annotation)
             }
         }
-
     }
-
-
-
 }

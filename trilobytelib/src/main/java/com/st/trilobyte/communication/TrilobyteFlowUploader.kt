@@ -24,14 +24,15 @@ class TrilobyteFlowUploader {
         SD_IO_ERROR(5),
         TIMEOUT_ERROR(6),
         GENERIC_ERROR(7),
-        APP_VERSION_ERROR(8)
+        APP_VERSION_ERROR(8),
+        FLOW_COMPATIBILY_ERROR(9)
     }
 
     companion object {
 
         private val TAG = TrilobyteFlowUploader::class.java.simpleName
 
-        private const val TIMEOUT_MS = 5000L
+        private const val TIMEOUT_MS = 10000L
 
         private const val CHARACTERISTIC_SIZE = 20
 
@@ -44,11 +45,7 @@ class TrilobyteFlowUploader {
         private const val FLOW_ERROR_MESSAGE = "Error:"
     }
 
-    private val mTimeoutHandler: Handler
-
-    init {
-        mTimeoutHandler = Handler(Looper.getMainLooper())
-    }
+    private val mTimeoutHandler: Handler = Handler(Looper.getMainLooper())
 
     fun checkFwVersion(node: Node?, versionListener: FwVersionConsole.FwVersionCallback) {
 
@@ -181,6 +178,9 @@ class TrilobyteFlowUploader {
                 val parsedError = errorMessage.removeTerminatorCharacters()
                         .substring(errorMessage.indexOf(":") + 1)
                 errorCode = Integer.parseInt(parsedError)
+                if((errorCode>CommunicationError.FLOW_COMPATIBILY_ERROR.code) || (errorCode<CommunicationError.FW_VERSION_ERROR.code)) {
+                    errorCode = CommunicationError.GENERIC_ERROR.code
+                }
             } catch (ignored: Exception) {
             } finally {
                 notifyTransmissionError(errorCode)

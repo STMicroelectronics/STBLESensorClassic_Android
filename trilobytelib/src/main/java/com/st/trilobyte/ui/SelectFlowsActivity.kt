@@ -102,7 +102,20 @@ class SelectFlowsActivity : AppCompatActivity() {
     }
 
     private fun uploadSelectedFlows(selectedFlows: List<Flow>) {
-        Session.setSession(selectedFlows)
+        //Log.i("FlowUpload", "setSession 1= $selectedFlows")
+
+        if(selectedFlows.size==1) {
+            if (selectedFlows[0].expression != null && selectedFlows[0].statements != null) {
+                Session.setSession( selectedFlows[0].expression.flows[0].flows,
+                    selectedFlows[0].statements[0]
+                )
+            } else {
+                Session.setSession(selectedFlows)
+            }
+        } else {
+            Session.setSession(selectedFlows)
+        }
+
         val intent = UploadFlowActivity.provideIntent(this, mBoard)
         startActivity(intent)
         finish()

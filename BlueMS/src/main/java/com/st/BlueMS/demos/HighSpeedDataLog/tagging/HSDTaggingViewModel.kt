@@ -54,6 +54,7 @@ internal open class HSDTaggingViewModel :ViewModel(){
                     label = this.label,
                     pinDesc = this.pinDesc,
                     tagType = R.string.annotationView_hwType,
+                    isEnabled = this.isEnabled,
                     isSelected = this.isEnabled,
                     userCanEditLabel = !isLogging,
                     userCanSelect = !isLogging)
@@ -62,6 +63,7 @@ internal open class HSDTaggingViewModel :ViewModel(){
                     label = this.label,
                     pinDesc = null,
                     tagType = R.string.annotationView_swType,
+                    isEnabled = this.isEnabled,
                     isSelected = this.isEnabled,
                     userCanEditLabel = !isLogging,
                     userCanSelect = true)
@@ -109,7 +111,7 @@ internal open class HSDTaggingViewModel :ViewModel(){
     }
 
     private fun startLog(acquisitionName: String, acquisitionDesc: String) {
-        disableLabelEditing()
+        disableLabelEditing(isHSDL1 = true)
         _isLogging.postValue(true)
         mConfigFeature?.sendSetCmd(HSDSetAcquisitionInfoCmd(acquisitionName,acquisitionDesc))
 
@@ -119,7 +121,7 @@ internal open class HSDTaggingViewModel :ViewModel(){
     }
 
     private fun stopLog(){
-        enableLabelEditing()
+        enableLabelEditing(isHSDL1 = true)
         _isLogging.postValue(false)
 
         val date = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault()).format(Date())
@@ -127,31 +129,70 @@ internal open class HSDTaggingViewModel :ViewModel(){
         mConfigFeature?.sendControlCmd(HSDStopLoggingCmd(date))
     }
 
-    fun enableLabelEditing() {
-        val nextStatus = mAnnotationViewDataList.map {annotation ->
+    fun enableLabelEditing(isHSDL1 : Boolean=false) {
+        val nextStatus =
+        if(isHSDL1) {
+            mAnnotationViewDataList.map {annotation ->
             if(annotation.tagType == R.string.annotationView_hwType){
-                annotation.copy(userCanSelect = true,userCanEditLabel = true)
-            }else{
-                annotation.copy(userCanSelect = true,userCanEditLabel = true)
+                    annotation.copy(userCanSelect = true,userCanEditLabel = true, isEnabled = true, isSelected = true)
+                }else{
+                    annotation.copy(userCanSelect = true,userCanEditLabel = true, isEnabled = true, isSelected = true)
+                }
             }
+        } else {
+             mAnnotationViewDataList.map {
+                if(it.isEnabled) {
+                    it.copy(
+                        userCanSelect = true,
+                        userCanEditLabel = true,
+                        isEnabled = true,
+                        isSelected = true)
+            }else{
+                    it.copy(
+                        userCanSelect = true,
+                        userCanEditLabel = true,
+                        isEnabled = true,
+                        isSelected = false
+                    )
+                }
+            }.sortedBy { it.label }
         }
+
         mAnnotationViewDataList.clear()
         mAnnotationViewDataList.addAll(nextStatus)
-        _annotation.postValue(nextStatus)
+        _annotation.postValue(mAnnotationViewDataList)
     }
 
-    fun disableLabelEditing() {
+    fun disableLabelEditing(isHSDL1 : Boolean=false) {
+        val nextStatus =
+        if(isHSDL1) {
         val filteredTags = mAnnotationViewDataList.filter { it.isSelected }
-        val nextStatus = filteredTags.map {annotation ->
+            filteredTags.map {annotation ->
             if(annotation.tagType == R.string.annotationView_hwType){
                 annotation.copy(userCanSelect = false,userCanEditLabel = false)
-            }else{
-                annotation.copy(userCanSelect = true,userCanEditLabel = false, isSelected = false)
+                }else{
+                    annotation.copy(userCanSelect = true,userCanEditLabel = false, isEnabled = true, isSelected = false)
+                }
             }
+        } else {
+            mAnnotationViewDataList.map {
+                if(it.isSelected) {
+                    it.copy(
+                        userCanSelect = true,
+                        userCanEditLabel = false,
+                        isEnabled = true,
+                        isSelected = false
+                    )
+            }else{
+                    it.copy(userCanSelect = false,userCanEditLabel = false, isEnabled = false)
+                }
+            }.sortedByDescending{it.userCanSelect}
         }
+
+
         mAnnotationViewDataList.clear()
         mAnnotationViewDataList.addAll(nextStatus)
-        _annotation.postValue(nextStatus)
+        _annotation.postValue(mAnnotationViewDataList)
     }
 
     open fun onStartStopLogPressed(acquisitionName: String, acquisitionDesc: String) {

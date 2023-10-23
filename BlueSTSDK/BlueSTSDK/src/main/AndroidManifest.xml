@@ -1,4 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.st.BlueSTSDK">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.st.BlueSTSDK">
 
     <!-- install only in device with ble -->
     <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
@@ -24,6 +26,7 @@
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.logFileProvider"
             android:exported="false"
+            tools:replace="android:authorities"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"

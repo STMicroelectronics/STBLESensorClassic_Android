@@ -166,7 +166,7 @@ class GenericTextualDemoFragment : BaseDemoFragment() {
                 //Clear the TextView
                 val initString = "${featureSelected.description}:\n\n"
                 featureData.text = initString
-                //Stop the notification
+                //Start the notification
                 mViewModel?.enableFeatureNotification()
                 startStopButton.setIconResource(R.drawable.ic_stop)
             }

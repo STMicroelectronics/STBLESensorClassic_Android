@@ -1,3 +1,25 @@
+ST BLE Sensor V4.20.1
+- Added Support to New ST Boards
+- Bug Fixing
+
+ST BLE Sensor V4.20.0
+- New Icon
+- Bug fixing
+
+ST BLE Sensor V4.19.1
+- UI improved
+- Bug Fixing on Flow Creation
+- Bug Fixing on MQTT connection
+- Bug Fixing for Azure IoT cloud demo
+- Bug Fixing for AWS IoT cloud demo
+
+ST BLE Sensor V4.19.0
+- Bug Fixing for MLC/FSM
+- Added support to STEVAL-MKBOXPRO board 
+
+ST BLE Sensor V4.18.2
+- Bug Fixing
+
 ST BLE Sensor V4.18.1
 - Libraries Update
 

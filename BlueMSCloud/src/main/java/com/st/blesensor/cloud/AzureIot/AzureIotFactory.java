@@ -53,7 +53,9 @@ import com.st.BlueSTSDK.Feature;
 import com.st.BlueSTSDK.Features.Field;
 import com.st.BlueSTSDK.Node;
 
-import org.eclipse.paho.android.service.MqttAndroidClient;
+//import org.eclipse.paho.android.service.MqttAndroidClient;
+import info.mqtt.android.service.Ack;
+import info.mqtt.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttAsyncClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -92,7 +94,7 @@ public class AzureIotFactory extends MqttClientConnectionFactory {
     @Override
     public CloutIotClient createClient(@NonNull Context ctx) {
         return new MqttClient(
-            new MqttAndroidClient(ctx,getMqttHost(),mParam.deviceId)
+            new MqttAndroidClient(ctx,getMqttHost(),mParam.deviceId, Ack.AUTO_ACK)
         );
     }
 

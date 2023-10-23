@@ -99,25 +99,25 @@ internal class HSDConfigViewModel : ViewModel(){
 
         //Device
         val deviceConf = FeatureHSDataLogConfig.getDeviceConfig(sample) ?: return@FeatureListener
-        if(deviceConf.deviceInfo != null){
-            //check FW version
-            if(deviceConf.deviceInfo!!.fwName == FeatureHSDataLogConfig.LATEST_FW_NAME){
-                val curVer = deviceConf.deviceInfo!!.fwVersion!!.replace(".","").toInt()
-                val targetVer = FeatureHSDataLogConfig.getFWVersionString().replace(".","").toInt()
-                val curFW = deviceConf.deviceInfo!!.fwName + "_v" + deviceConf.deviceInfo!!.fwVersion
-                val targetFW = FeatureHSDataLogConfig.LATEST_FW_NAME + "_v " + FeatureHSDataLogConfig.getFWVersionString()
-                val targetFWUrl = FeatureHSDataLogConfig.LATEST_FW_URL
-                if(curVer < targetVer){
-                    _fwErrorInfo.postValue(FWErrorInfo("Obsolete FW Detected", curFW, targetFW, targetFWUrl))
-                }
-            } else {
-                _fwErrorInfo.postValue(FWErrorInfo(
-                        "Wrong FW Detected",
-                        deviceConf.deviceInfo!!.fwName.toString(),
-                        FeatureHSDataLogConfig.LATEST_FW_NAME,
-                        FeatureHSDataLogConfig.LATEST_FW_URL))
-            }
-        }
+//        if(deviceConf.deviceInfo != null){
+//            //check FW version
+//            if(deviceConf.deviceInfo!!.fwName == FeatureHSDataLogConfig.LATEST_FW_NAME){
+//                val curVer = deviceConf.deviceInfo!!.fwVersion!!.replace(".","").toInt()
+//                val targetVer = FeatureHSDataLogConfig.getFWVersionString().replace(".","").toInt()
+//                val curFW = deviceConf.deviceInfo!!.fwName + "_v" + deviceConf.deviceInfo!!.fwVersion
+//                val targetFW = FeatureHSDataLogConfig.LATEST_FW_NAME + "_v " + FeatureHSDataLogConfig.getFWVersionString()
+//                val targetFWUrl = FeatureHSDataLogConfig.LATEST_FW_URL
+//                if(curVer < targetVer){
+//                    _fwErrorInfo.postValue(FWErrorInfo("Obsolete FW Detected", curFW, targetFW, targetFWUrl))
+//                }
+//            } else {
+//                _fwErrorInfo.postValue(FWErrorInfo(
+//                        "Wrong FW Detected",
+//                        deviceConf.deviceInfo!!.fwName.toString(),
+//                        FeatureHSDataLogConfig.LATEST_FW_NAME,
+//                        FeatureHSDataLogConfig.LATEST_FW_URL))
+//            }
+//        }
 
         val newConfiguration = mutableListOf<SensorViewData>()
         val sensors = deviceConf.sensors ?: return@FeatureListener

@@ -67,9 +67,9 @@ android {
 
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 132
-        versionName '4.18.1'
-        applicationId "com.st.bluems"
+        versionCode 150
+        versionName '4.20.2'
+        applicationId "com.st.bluemsclassic"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
@@ -89,7 +89,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //resValue 'string', 'application_id', android.defaultConfig.applicationId
 
-            buildConfigField "String", "DTDL_DB_BASE_URL", "\"https://raw.githubusercontent.com/STMicroelectronics/appconfig/blesensor_4.18/\""
+            buildConfigField "String", "DTDL_DB_BASE_URL", "\"https://raw.githubusercontent.com/STMicroelectronics/appconfig/blesensor_4.20/\""
             buildConfigField "String", "DTDL_DB_BASE_URL_BETA", "\"https://raw.githubusercontent.com/SW-Platforms/appconfig/release/\""
         }
         debug {

@@ -2,7 +2,7 @@
 "description":"Pedometer",
   "category": "Motion",
   "board_compatibility" : [
-    "SENSOR_TILE_BOX_PRO"
+    "SENSOR_TILE_BOX_PRO","SENSOR_TILE_BOX_PROB"
   ],
 "flows":[
 ],
@@ -73,7 +73,7 @@ The steps data starts to change after 10 seconds of constant walk (debounce time
     ],
     "model": "LIS2DU12",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO","SENSOR_TILE_BOX_PROB"
     ],
     "um": "mg",
     "fullScaleUm": "g",

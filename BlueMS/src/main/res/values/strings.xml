@@ -37,8 +37,8 @@
 
 <resources>
 
-    <string name="app_name" translatable="false">ST BLE Sensor</string>
-    <string name="app_name_beta" translatable="false">ST Beta-BLE Sensor</string>
+    <string name="app_name" translatable="false">ST BLE Sensor Classic</string>
+    <string name="app_name_beta" translatable="false">ST Beta-BLE Sensor Classic</string>
 
     <string name="title_activity_debug_console">Debug Console</string>
 

@@ -50,7 +50,10 @@ dependencies {
 
     //necessary to cloud demo, for mqtt connection
     api group: 'org.eclipse.paho', name: 'org.eclipse.paho.client.mqttv3', version: "$rootProject.cloud_pahoVersion"
-    api group: 'org.eclipse.paho', name: 'org.eclipse.paho.android.service', version: "$rootProject.cloud_pahoServiceVersion"
+    //api group: 'org.eclipse.paho', name: 'org.eclipse.paho.android.service', version: "$rootProject.cloud_pahoServiceVersion"
+    //new mqtt library that supports android 12
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.github.hannesa2:paho.mqtt.android:3.3.5'
 
     //amazon aws iot
     implementation group: 'com.amazonaws', name: 'aws-android-sdk-iot', version: "$rootProject.awsVersion"

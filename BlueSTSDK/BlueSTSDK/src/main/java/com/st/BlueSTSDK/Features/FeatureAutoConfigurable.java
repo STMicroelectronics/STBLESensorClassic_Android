@@ -93,7 +93,7 @@ public abstract class FeatureAutoConfigurable extends Feature {
         super(name, n, dataDesc);
         mIsConfigured = null;
         //This must be changed for .box-Pro
-        if((n.getType() == Node.Type.SENSOR_TILE_BOX) || (n.getType() == Node.Type.SENSOR_TILE_BOX_PRO)){
+        if((n.getType() == Node.Type.SENSOR_TILE_BOX) || (n.getType() == Node.Type.SENSOR_TILE_BOX_PRO) || (n.getType() == Node.Type.SENSOR_TILE_BOX_PROB)){
             mStBoxCalib = new CalibrationSensorTileBox(n.getDebug());
         }
     }//

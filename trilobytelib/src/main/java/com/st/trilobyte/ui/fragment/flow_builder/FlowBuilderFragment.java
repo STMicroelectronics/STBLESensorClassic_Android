@@ -1,6 +1,7 @@
 package com.st.trilobyte.ui.fragment.flow_builder;
 
 import android.content.DialogInterface;
+import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -238,7 +239,24 @@ public class FlowBuilderFragment extends BuilderFragment {
         outputWidget.setCompleted(outputs != null && outputs.size() > 0);
         if (outputs != null && outputs.size() > 0) {
             for (Output output : outputs) {
+                boolean addOutput = true;
+
+                // check the BLE output and the Sensor ODR
+                if(output.getId().equals("O3")) {
+                    for(Sensor sensor: getCurrentFlow().getSensors()) {
+                        if((sensor.getConfiguration().getOdr()!=null) && (sensor.getBleMaxOdr()!=null)) {
+                            if(sensor.getConfiguration().getOdr()>sensor.getBleMaxOdr()) {
+                                addOutput = false;
+                                List<Output> outputsNew = outputs;
+                                outputsNew.remove(output);
+                                getCurrentFlow().setOutputs(outputsNew);
+                            }
+                        }
+                    }
+                }
+                if(addOutput) {
                 outputWidget.addOutput(output);
+            }
             }
 
             TextView saveTextview = getView().findViewById(R.id.save_flow_textview);

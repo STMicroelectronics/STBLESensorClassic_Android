@@ -18,6 +18,7 @@ data class PowerMode(
         LOW_POWER_3(5),
         LOW_POWER_4(6),
         HIGH_PERFORMANCE(7),
-        HIGH_RESOLUTION(8)
+        HIGH_RESOLUTION(8),
+        NORMAL_MODE(9)
     }
 }

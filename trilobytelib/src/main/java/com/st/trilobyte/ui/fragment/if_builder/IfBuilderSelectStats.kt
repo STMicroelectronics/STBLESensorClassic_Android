@@ -54,7 +54,7 @@ class IfBuilderSelectStats : IfFragment() {
         val savedFlows = loadSavedFlows(mBoard)
 
         val availableFlows = savedFlows.filter { it.canBeUploaded() }.toMutableList()
-        getCounterFlowList(context!!,mBoard)?.let {
+        getCounterFlowList(requireContext(),mBoard)?.let {
             availableFlows.addAll(0, it)
         }
 

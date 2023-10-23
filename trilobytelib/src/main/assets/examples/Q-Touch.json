@@ -2,7 +2,8 @@
   "description": "Q-Touch",
   "category": "User Interface",
   "board_compatibility" : [
-    "SENSOR_TILE_BOX_PRO"
+    "SENSOR_TILE_BOX_PRO",
+    "SENSOR_TILE_BOX_PROB"
   ],
   "flows": [],
   "functions": [],
@@ -36,7 +37,8 @@
     "dataType": "uint8_t vector x8",
     "model": "LSM6DSV16X",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "datasheetLink": "https://www.st.com/resource/en/datasheet/lsm6dsv16x.pdf",
     "um": ""
@@ -57,7 +59,8 @@
     "dataType": "uint8_t scalar",
     "model": "LSM6DSV16X",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "datasheetLink": "https://www.st.com/resource/en/datasheet/lsm6dsv16x.pdf",
     "um": ""

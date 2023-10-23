@@ -12,4 +12,6 @@ public interface NavigationDelegate {
     void showFlowCategory(FlowCategory category);
 
     void uploadFlows(List<Flow> flows);
+
+    void uploadFlows(List<Flow> flows, Flow exp);
 }

@@ -1,5 +1,5 @@
 {
-"description":"Human Activity recognition",
+"description":"Human Activity Recognition",
   "category": "AI & MLC",
   "board_compatibility" : [
     "SENSOR_TILE_BOX"

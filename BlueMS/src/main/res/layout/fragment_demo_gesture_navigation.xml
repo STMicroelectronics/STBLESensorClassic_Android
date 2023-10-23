@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="Gesture Found"
+        android:text="... Waiting ..."
         android:textStyle="bold"
         android:lines="3"
         android:gravity="center"

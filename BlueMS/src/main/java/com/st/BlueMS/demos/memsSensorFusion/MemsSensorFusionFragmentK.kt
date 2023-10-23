@@ -242,7 +242,7 @@ class MemsSensorFusionFragmentK : BaseDemoFragment(), CalibrationContract.View {
                 R.drawable.ic_board_sensortile_bg
             )
             //This must be changed for .box-Pro
-            Node.Type.SENSOR_TILE_BOX, Node.Type.SENSOR_TILE_BOX_PRO -> buildResetInfoDialog(
+            Node.Type.SENSOR_TILE_BOX, Node.Type.SENSOR_TILE_BOX_PRO,Node.Type.SENSOR_TILE_BOX_PROB -> buildResetInfoDialog(
                 R.string.memsSensorFusionDialogResetText_nucleo,
                 R.drawable.ic_sensortile_box
             )

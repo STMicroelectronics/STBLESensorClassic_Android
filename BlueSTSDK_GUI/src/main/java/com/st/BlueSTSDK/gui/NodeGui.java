@@ -53,7 +53,9 @@ public class NodeGui {
             case STEVAL_STWINKIT1:
             case STEVAL_STWINKT1B:
             case SENSOR_TILE_BOX_PRO:
+            case SENSOR_TILE_BOX_PROB:
             case STWIN_BOX:
+            case STWIN_BOXB:
                 return R.drawable.board_sensor_tile;
             case BLUE_COIN:
                 return R.drawable.board_bluecoin;
@@ -118,8 +120,10 @@ public class NodeGui {
             case STDES_CBMLORABLE:
                 return R.drawable.real_board_stdes_cbmlorable;
             case SENSOR_TILE_BOX_PRO:
+            case SENSOR_TILE_BOX_PROB:
                 return R.drawable.real_board_sensortilebox_pro;
             case STWIN_BOX:
+            case STWIN_BOXB:
                 return R.drawable.real_board_stwinbx1;
             case GENERIC:
             case B_L475E_IOT01A:

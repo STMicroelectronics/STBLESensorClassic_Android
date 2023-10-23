@@ -45,6 +45,7 @@ import android.widget.TextView;
 import androidx.activity.result.ActivityResultRegistry;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.st.BlueSTSDK.Feature;
 import com.st.BlueSTSDK.Feature.FeatureListener;
@@ -156,7 +157,7 @@ public interface CloudIotClientConnectionFactory {
      * @param activityResultRegistry
      * @param client connection to close
      */
-    default void upload(ActivityResultRegistry activityResultRegistry, @NonNull Activity act, @NonNull Context ctx, @NonNull CloutIotClient client) {
+    default void upload(ActivityResultRegistry activityResultRegistry, @NonNull AppCompatActivity act, @NonNull Context ctx, @NonNull CloutIotClient client) {
 
     }
 

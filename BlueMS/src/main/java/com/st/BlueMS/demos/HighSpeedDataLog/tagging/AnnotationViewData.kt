@@ -8,5 +8,6 @@ internal data class AnnotationViewData(
         var pinDesc: String?,
         @StringRes val tagType: Int,
         var isSelected:Boolean = false,
+        var isEnabled: Boolean = false,
         var userCanEditLabel:Boolean = false,
         var userCanSelect:Boolean = false)

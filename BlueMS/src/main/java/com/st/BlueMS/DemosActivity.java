@@ -218,7 +218,6 @@ public class DemosActivity extends com.st.BlueSTSDK.gui.DemosActivity {
             GestureNavigationFragment.class,
             JsonNFCFragment.class,
             ExtConfigurationFragment.class,
-            PnPLConfigurationFragment.class,
             StartOtaRebootFragment.class,
             CloudLogFragment.class,
             GenericTextualDemoFragment.class,
@@ -240,6 +239,7 @@ public class DemosActivity extends com.st.BlueSTSDK.gui.DemosActivity {
         boolean betaFunctionalities = prefs.getBoolean(AboutActivity.ENABLE_BETA_FUNCTIONALITIES, false);
         if(betaFunctionalities) {
             demoList.add(BinaryContentDemoFragment.class);
+            demoList.add(PnPLConfigurationFragment.class);
         }
 
         List<Class<? extends DemoFragment>> serverDemos = getServerSizeDemos();

@@ -197,8 +197,14 @@ class UploadFlowActivity : NodeScanActivity() {
             mAdapter.clear()
             Manager.getSharedInstance().nodes.forEach {
                 //if((it.type!=Node.Type.SENSOR_TILE_BOX) && (it.type!=Node.Type.SENSOR_TILE_BOX_PRO))
-                if(it.type!=mBoard) {
-                    return@forEach
+                if(mBoard==Node.Type.SENSOR_TILE_BOX) {
+                    if (it.type != Node.Type.SENSOR_TILE_BOX) {
+                        return@forEach
+                    }
+                } else {
+                    if((it.type!=Node.Type.SENSOR_TILE_BOX_PRO) && (it.type!=Node.Type.SENSOR_TILE_BOX_PROB)){
+                        return@forEach
+                    }
                 }
                 mAdapter.addNode(it)
             }
@@ -217,9 +223,16 @@ class UploadFlowActivity : NodeScanActivity() {
     private fun checkBoardType() {
         mSelectedNode?.let {
             //if ((it.type != Node.Type.SENSOR_TILE_BOX) && (it.type != Node.Type.SENSOR_TILE_BOX_PRO)){
-            if(it.type!=mBoard) {
-                DialogHelper.showDialog(this@UploadFlowActivity, getString(R.string.wrong_board_error), null)
-                return
+            if(mBoard==Node.Type.SENSOR_TILE_BOX) {
+                if (it.type != Node.Type.SENSOR_TILE_BOX) {
+                    DialogHelper.showDialog(this@UploadFlowActivity, getString(R.string.wrong_board_error), null)
+                    return
+                }
+            } else {
+                if((it.type!=Node.Type.SENSOR_TILE_BOX_PRO) && (it.type!=Node.Type.SENSOR_TILE_BOX_PROB)){
+                    DialogHelper.showDialog(this@UploadFlowActivity, getString(R.string.wrong_board_error), null)
+                    return
+                }
             }
         }
 
@@ -268,9 +281,16 @@ class UploadFlowActivity : NodeScanActivity() {
 
         override fun onNodeDiscovered(m: Manager, node: Node) {
             //if((node.type != Node.Type.SENSOR_TILE_BOX) && (node.type != Node.Type.SENSOR_TILE_BOX_PRO)){
-            if(node.type!=mBoard) {
-                return
+            if(mBoard==Node.Type.SENSOR_TILE_BOX) {
+                if (node.type != Node.Type.SENSOR_TILE_BOX) {
+                    return
+                }
+            } else {
+                if((node.type!=Node.Type.SENSOR_TILE_BOX_PRO) && (node.type!=Node.Type.SENSOR_TILE_BOX_PROB)){
+                    return
+                }
             }
+
             runOnUiThread {
                 Log.d("Flow","onNodeDiscovered: ${node.tag}")
                 mAdapter.addNode(node)

@@ -192,11 +192,6 @@ class HighSpeedDataLogFragment : BaseDemoFragment(){
 
     override fun enableNeededNotification(node: Node) {
 
-        showIntroductionMessage(
-            "Please check Firmware version.\nIf you have v1.1.0 something may not work\nPlease update to latest version\n(https://www.st.com/en/embedded-software/fp-sns-datalog1.html)",
-            context
-        );
-
         if(childFragmentManager.findFragmentByTag(CONFIG_FRAGMENT_TAG)==null){
             showConfigFragment()
         }

@@ -31,6 +31,7 @@ internal class HSD2TaggingViewModel: HSDTaggingViewModel(){
             Log.e("HSD2TaggingViewModel","--> tags_info status received")
             mAnnotationViewDataList.clear()
             componentStatus.cont_list.forEach { content ->
+                Log.d("HSD2TaggingViewModel", "-->$content")
                 if (content.cont_name.contains("sw_tag") || content.cont_name.contains("hw_tag")) {
                     val tagClassId = content.cont_name.filter { it.isDigit() }.toInt()
                     val tagClass = content.toAnnotationViewData(tagClassId)
@@ -49,14 +50,28 @@ internal class HSD2TaggingViewModel: HSDTaggingViewModel(){
 
     private fun PnPLContent.toAnnotationViewData(id:Int): AnnotationViewData {
         val isLogging = (this@HSD2TaggingViewModel.isLogging.value ?: false)
-        return AnnotationViewData(
-            id = id,
-            label = this.sub_cont_list!!.find { it.cont_name == "label"}!!.cont_info as String,
-            pinDesc = this.cont_name,
-            tagType = if(this.cont_name.contains("sw_tag")) R.string.annotationView_swType else R.string.annotationView_hwType,
-            isSelected = this.sub_cont_list!!.find { it.cont_name == "enabled"}!!.cont_info as Boolean,
-            userCanEditLabel = !isLogging,
-            userCanSelect = !isLogging)
+        if(isLogging) {
+            return  AnnotationViewData(
+                id = id,
+                label = this.sub_cont_list!!.find { it.cont_name == "label" }!!.cont_info as String,
+                pinDesc = this.cont_name,
+                tagType = if (this.cont_name.contains("sw_tag")) R.string.annotationView_swType else R.string.annotationView_hwType,
+                isSelected = this.sub_cont_list!!.find { it.cont_name == "status" }!!.cont_info as Boolean,
+                isEnabled = this.sub_cont_list!!.find { it.cont_name == "enabled" }!!.cont_info as Boolean,
+                userCanEditLabel = false,
+                userCanSelect = this.sub_cont_list!!.find { it.cont_name == "enabled" }!!.cont_info as Boolean
+            )
+        } else {
+            return  AnnotationViewData(
+                id = id,
+                label = this.sub_cont_list!!.find { it.cont_name == "label" }!!.cont_info as String,
+                pinDesc = this.cont_name,
+                tagType = if (this.cont_name.contains("sw_tag")) R.string.annotationView_swType else R.string.annotationView_hwType,
+                isSelected = false,
+                isEnabled = true,
+                userCanEditLabel = true,
+                userCanSelect = true)
+        }
     }
 
     override fun enableNotification(node: Node){

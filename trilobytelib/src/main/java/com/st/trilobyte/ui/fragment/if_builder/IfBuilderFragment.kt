@@ -2,9 +2,11 @@ package com.st.trilobyte.ui.fragment.if_builder
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.gson.GsonBuilder
 import com.st.BlueSTSDK.Node
 import com.st.trilobyte.R
 import com.st.trilobyte.databinding.FragmentIfBuilderBinding
@@ -104,6 +106,7 @@ class IfBuilderFragment : IfFragment() {
     private fun updateView() {
         binding.expressionWidget.addExpression(getParentActivity()?.expression)
         binding.statementsWidget.addStatements(getParentActivity()?.statements)
+       // binding.uploadButton.isActivated = (getParentActivity()?.expression!=null) && (getParentActivity()?.statements!=null)
     }
 
     private fun uploadSelectedFlows() {
@@ -119,7 +122,6 @@ class IfBuilderFragment : IfFragment() {
             showDialog(requireActivity(), getString(R.string.error_select_flows_before_play), null)
             return
         }
-
         Session.setSession(stats, exp)
 
         val intent = UploadFlowActivity.provideIntent(requireContext(),mBoard)

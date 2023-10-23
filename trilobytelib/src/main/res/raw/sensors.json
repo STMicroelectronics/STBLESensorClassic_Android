@@ -47,7 +47,8 @@
     "icon": "ic_termometer",
     "model": "STTS22H",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "output": "Temperature",
     "outputs": [
@@ -179,7 +180,8 @@
     "icon": "ic_pressure",
     "model": "LPS22DF",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "output": "Pressure",
     "outputs": [
@@ -221,7 +223,7 @@
   },
   {
     "id": "S4",
-    "description": "Low power Acceleromter sensor",
+    "description": "Low power Accelerometer sensor",
     "icon": "ic_accelerometer",
     "output": "Acceleration",
     "outputs": [
@@ -324,7 +326,7 @@
   },
   {
     "id": "S4",
-    "description": "Low power Acceleromter sensor",
+    "description": "Low power Accelerometer sensor",
     "icon": "ic_accelerometer",
     "output": "Acceleration",
     "outputs": [
@@ -334,7 +336,8 @@
     ],
     "model": "LIS2DU12",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "um": "mg",
     "fullScaleUm": "g",
@@ -536,7 +539,8 @@
     ],
     "model": "LSM6DSV16X",
    "board_compatibility" : [
-     "SENSOR_TILE_BOX_PRO"
+     "SENSOR_TILE_BOX_PRO",
+     "SENSOR_TILE_BOX_PROB"
    ],
     "um": "mg",
     "fullScaleUm": "g",
@@ -673,7 +677,8 @@
     "icon": "ic_inemo",
     "model": "LSM6DSV16X",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "um": "mdps",
     "fullScaleUm": "dps",
@@ -769,7 +774,8 @@
     "model": "LIS2MDL",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "notes": "OFF_CANC always enabled",
     "um": "mG",
@@ -849,7 +855,8 @@
     "icon": "ic_microphone",
     "model": "MP23DB01HP",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "datasheetLink": "https://www.st.com/resource/en/datasheet/mp23db01hp.pdf",
     "dataType": "int16_t vector x n",
@@ -900,7 +907,8 @@
     "dataType": "float scalar",
     "model": "STM32U585AI",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "outputs": [
       "O1",
@@ -947,7 +955,8 @@
     "dataType": "uint64_t scalar",
     "model": "STM32U5858AI",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "datasheetLink": "https://www.st.com/en/microcontrollers/stm32u5858ai.html",
     "um": "utc format",
@@ -996,7 +1005,8 @@
     "dataType": "uint8_t vector x4",
     "model": "LSM6DSV16X",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "datasheetLink": "https://www.st.com/resource/en/datasheet/lsm6dsv16x.pdf",
     "um": ""
@@ -1042,7 +1052,8 @@
     "dataType": "uint8_t vector x8",
     "model": "LSM6DSV16X",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "datasheetLink": "https://www.st.com/resource/en/datasheet/lsm6dsv16x.pdf",
     "um": ""
@@ -1059,11 +1070,12 @@
     "configuration": {
       "acquisitionTime": 0
     },
-    "icon": "ic_qvar_demo",
+    "icon": "ic_qvar_sensor",
     "dataType": "uint8_t scalar",
     "model": "LSM6DSV16X",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "datasheetLink": "https://www.st.com/resource/en/datasheet/lsm6dsv16x.pdf",
     "um": ""
@@ -1076,11 +1088,12 @@
       "O3"
     ],
     "configuration": {},
-    "icon": "connectivity_nfc",
+    "icon": "ic_nfc_sensor",
     "dataType": "uint8_t scalar",
     "model": "ST25DV04K",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "datasheetLink": "https://www.st.com/resource/en/datasheet/st25dv04k.pdf",
     "um": ""

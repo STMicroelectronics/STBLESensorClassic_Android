@@ -72,7 +72,7 @@ class HSD2MainViewModel : ViewModel(){
             sendPnPLGetComponentStatusCmd(PnPLGetComponentStatusCmd("log_controller"))
             val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
             val timeInMillis = calendar.timeInMillis
-            val sdf = SimpleDateFormat("yyyyMMdd_hh_mm_ss", Locale.ROOT) //internal timestamp format (known by the FW)
+            val sdf = SimpleDateFormat("yyyyMMdd_HH_mm_ss", Locale.ROOT) //internal timestamp format (known by the FW)
             val datetime = sdf.format(Date(timeInMillis))
             sendPnPLCommandCmd("log_controller","set_time", mapOf("datetime" to datetime))
         }

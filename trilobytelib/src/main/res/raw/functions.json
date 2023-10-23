@@ -2,8 +2,7 @@
   {
     "id": "F1",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX"
     ],
     "description": "ARMA (Auto regressive Moving Average)",
     "inputs": [
@@ -87,7 +86,8 @@
     "id": "F2",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "FFT (DFT- Discrete Fourier Transform)",
     "inputs": [
@@ -136,7 +136,8 @@
     "id": "F3",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "Sensor Fusion (Quaternions)",
     "inputs": [
@@ -251,7 +252,8 @@
     "id": "F5",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "Pedometer",
     "inputs": [
@@ -284,7 +286,8 @@
     "id": "F6",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "Hard-Iron compensation",
     "inputs": [
@@ -304,7 +307,8 @@
     "id": "F7",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "RMS (Root Mean Square)",
     "inputs": [
@@ -334,7 +338,8 @@
     "id": "F18",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "MAX",
     "inputs": [
@@ -346,6 +351,7 @@
       "S6",
       "S7",
       "S8",
+      "S14",
       "F20",
       "F23"
     ],
@@ -364,7 +370,8 @@
     "id": "F19",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "MIN",
     "inputs": [
@@ -376,6 +383,7 @@
       "S6",
       "S7",
       "S8",
+      "S14",
       "F20",
       "F23"
     ],
@@ -394,7 +402,8 @@
     "id": "F20",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "NORM",
     "inputs": [
@@ -418,7 +427,8 @@
     "id": "F21",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "AVG",
     "inputs": [
@@ -430,7 +440,8 @@
       "S6",
       "S7",
       "S8",
-      "S9"
+      "S9",
+      "S14"
     ],
     "mandatoryInputs": [],
     "outputs": [
@@ -452,7 +463,8 @@
     "id": "F23",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "Standard Deviation",
     "inputs": [
@@ -464,6 +476,7 @@
       "S6",
       "S7",
       "S8",
+      "S14",
       "F18",
       "F19",
       "F20",
@@ -491,7 +504,8 @@
     "id": "F24",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "Level",
     "inputs": [
@@ -583,7 +597,8 @@
     "id": "F27",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "Baby Crying",
     "inputs": [
@@ -607,7 +622,8 @@
     "id": "F28",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "Human Activity recognition",
     "inputs": [
@@ -631,7 +647,8 @@
     "id": "L1",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "Threshold Comparison",
     "inputs": [
@@ -643,6 +660,7 @@
       "S6",
       "S7",
       "S8",
+      "S14",
       "F1",
       "F5",
       "F6",
@@ -699,7 +717,8 @@
     "id": "L1",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "Threshold Comparison",
     "inputs": [
@@ -760,7 +779,8 @@
     "id": "L2",
     "board_compatibility" : [
       "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+	  "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "description": "Battery Low",
     "inputs": [],
@@ -775,8 +795,7 @@
   {
     "id": "L3",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX",
-	  "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX"
     ],
     "description": "USB Connected",
     "inputs": [],

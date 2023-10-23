@@ -1,6 +1,7 @@
 package com.st.BlueMS.demos.HighSpeedDatalog2
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -159,6 +160,8 @@ class HSD2MainFragment : BaseDemoFragment(){
                 if(fragmentTag!=null) {
                     if ((fragmentTag as HSD2TaggingFragment).isLogging()){
                         (fragmentConfig as HSD2ConfigFragment).showIsLoggingView(true)
+                    } else {
+                        (fragmentConfig as HSD2ConfigFragment).showIsLoggingView(false)
                     }
                 }
             }

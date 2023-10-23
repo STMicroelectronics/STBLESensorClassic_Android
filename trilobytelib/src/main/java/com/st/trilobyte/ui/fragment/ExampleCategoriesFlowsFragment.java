@@ -29,7 +29,7 @@ public class ExampleCategoriesFlowsFragment extends Fragment {
     private FlowCategoryAdapter mAdapter;
     private NavigationDelegate mFlowListener;
 
-    Node.Type mBoard;
+    Node.Type mBoard = Node.Type.SENSOR_TILE_BOX;
 
     public static ExampleCategoriesFlowsFragment getInstance(NavigationDelegate listener, Node.Type board) {
         ExampleCategoriesFlowsFragment fragment = new ExampleCategoriesFlowsFragment();
@@ -92,8 +92,10 @@ public class ExampleCategoriesFlowsFragment extends Fragment {
             categories.add(new FlowCategory(flow.getCategory()));
         }
 
+        if(!categories.isEmpty()) {
         mAdapter.addFlows(new ArrayList<>(categories));
         mAdapter.notifyDataSetChanged();
+    }
     }
 
     public void setExpertModeListener(final NavigationDelegate expertModeListener) {
@@ -102,6 +104,9 @@ public class ExampleCategoriesFlowsFragment extends Fragment {
 
     public void setBoardType(final Node.Type board) {
         mBoard = board;
+        if(mAdapter!=null) {
+            fillAdapter();
+        }
     }
 
     @Override

@@ -41,7 +41,8 @@
     <string name="add_label_description" translatable="false">Add Label</string>
     <string name="remove_label_description" translatable="false">Remove Label</string>
     <string name="expand_label_description" translatable="false">Expand Labels</string>
-    <string name="ucf_file_steval_unsupported" translatable="false">The selected ucf file is not compatible with the LSM6DSOX device</string>
+    <string name="ucf_file_steval_mksbox1v1_unsupported" translatable="false">The selected ucf file is not compatible with the LSM6DSOX device</string>
+    <string name="ucf_file_steval_mkboxpro_unsupported" translatable="false">The selected ucf file is not compatible with the LSM6DSV16X device</string>
     <string name="ucf_file_mlc_disabled" translatable="false">The selected ucf file does not enable the Machine Learning Core</string>
     <string name="ucf_file_fsm_disabled" translatable="false">The selected ucf file does not enable the Finite State Machine</string>
     <string-array name="dectrees_number" translatable="false">
@@ -97,6 +98,7 @@
     <string name="about_sensortile_box" translatable="false">About SensorTile.box</string>
     <string name="about_sensortile_box_pro" translatable="false">About SensorTile.box-Pro</string>
     <string name="stm_website" translatable="false">ST Website</string>
+    <string name="stm_json" translatable="false">Custom Fw Db Entry</string>
     <string name="expert_view" translatable="false">Expert view</string>
     <string name="custom_flows" translatable="false">Custom Apps</string>
     <string name="upload_and_run" translatable="false">Upload and run the app on your board.</string>
@@ -172,10 +174,11 @@
     <string name="board_missing_sd_error" translatable="false">SD card missing. Insert the memory card and try again.</string>
     <string name="board_usb_error" translatable="false">USB cable not connected. Connect the USB cable and try again</string>
     <string name="board_generic_upload_error" translatable="false">There was an error loading the App on the board.</string>
-    <string name="board_timeout_upload_error" translatable="false">There was an error loading the App on the board.</string>
+    <string name="board_timeout_upload_error" translatable="false">There was a timeout error loading the App on the board.</string>
     <string name="board_missing_app_file" translatable="false">SD file needed for the app not found.</string>
     <string name="board_io_error" translatable="false">IO error during the app start up</string>
     <string name="app_version_error" translatable="false">App upload failed. Please update the Android Application.</string>
+    <string name="not_compatible_flows_sequence_error" translatable="false">App upload failed. Sequence of Sensors/Functions not compatible.</string>
 
     <string name="error_cannot_upload_flow_multiple_sensors_only_flows" translatable="false">Cannot play selected Apps. There are two app composed by only sensors</string>
     <string name="error_cannot_upload_flow_sensor_configuration_misleading" translatable="false">Cannot play selected Apps. %s is present with multiple configurations.</string>

@@ -68,7 +68,7 @@ class GestureNavigationFragment : BaseDemoFragment() {
         updateGui {
             textGesture.text = gesture.name.replace('_',' ')
             when(gesture) {
-                FeatureGestureNavigation.NavigationGesture.SWYPE_LEFT_TO_RIGHT -> {
+                FeatureGestureNavigation.NavigationGesture.SWIPE_LEFT_TO_RIGHT -> {
                     arrowRight.visibility = View.VISIBLE
                     arrowLeft.visibility = View.VISIBLE
                     arrowUp.visibility = View.INVISIBLE
@@ -77,7 +77,7 @@ class GestureNavigationFragment : BaseDemoFragment() {
                     arrowRight.startAnimation(mMoveRightAnim)
                     arrowLeft.startAnimation(mMoveRightAnim)
                 }
-                FeatureGestureNavigation.NavigationGesture.SWYPE_RIGHT_TO_LEFT -> {
+                FeatureGestureNavigation.NavigationGesture.SWIPE_RIGHT_TO_LEFT -> {
                     arrowRight.visibility = View.VISIBLE
                     arrowLeft.visibility = View.VISIBLE
                     arrowUp.visibility = View.INVISIBLE
@@ -86,7 +86,7 @@ class GestureNavigationFragment : BaseDemoFragment() {
                     arrowLeft.startAnimation(mMoveLeftAnim)
                     arrowRight.startAnimation(mMoveLeftAnim)
                 }
-                FeatureGestureNavigation.NavigationGesture.SWYPE_DOWN_TO_UP -> {
+                FeatureGestureNavigation.NavigationGesture.SWIPE_DOWN_TO_UP -> {
                     arrowRight.visibility = View.INVISIBLE
                     arrowLeft.visibility = View.INVISIBLE
                     arrowUp.visibility = View.VISIBLE
@@ -96,7 +96,7 @@ class GestureNavigationFragment : BaseDemoFragment() {
                     arrowUp.startAnimation(mMoveUpAnim)
 
                 }
-                FeatureGestureNavigation.NavigationGesture.SWYPE_UP_TO_DOWN -> {
+                FeatureGestureNavigation.NavigationGesture.SWIPE_UP_TO_DOWN -> {
                     arrowRight.visibility = View.INVISIBLE
                     arrowLeft.visibility = View.INVISIBLE
                     arrowUp.visibility = View.VISIBLE

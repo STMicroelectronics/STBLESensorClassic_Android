@@ -498,8 +498,6 @@ public class EnvironmentalSensorsFragment extends BaseDemoFragment {
     @Override
     protected void enableNeededNotification(@NonNull Node node) {
 
-        //showIntroductionMessage("Demo for visualizing Environmental Values", getContext());
-
         mHumidity = node.getFeatures(FeatureHumidity.class);
         if (!mHumidity.isEmpty()) {
             View.OnClickListener forceUpdate = new ForceUpdateFeature(mHumidity);

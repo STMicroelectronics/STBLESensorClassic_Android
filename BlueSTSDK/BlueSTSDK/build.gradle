@@ -29,15 +29,15 @@ android {
         release {
             minifyEnabled false
 
-            buildConfigField "String", "BLUESTSDK_DB_BASE_VERSION", "\"4.18.0\""
-            buildConfigField "String", "BLUESTSDK_DB_BASE_URL", "\"https://raw.githubusercontent.com/STMicroelectronics/appconfig/blesensor_4.18/bluestsdkv2/\""
+            buildConfigField "String", "BLUESTSDK_DB_BASE_VERSION", "\"4.20.0\""
+            buildConfigField "String", "BLUESTSDK_DB_BASE_URL", "\"https://raw.githubusercontent.com/STMicroelectronics/appconfig/blesensor_4.20/bluestsdkv2/\""
             buildConfigField "String", "BLUESTSDK_DB_BASE_BETA_URL", "\"https://raw.githubusercontent.com/SW-Platforms/appconfig/release/bluestsdkv2/\""
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
         debug{
-            buildConfigField "String", "BLUESTSDK_DB_BASE_VERSION", "\"4.18.0\""
-            buildConfigField "String", "BLUESTSDK_DB_BASE_URL", "\"https://raw.githubusercontent.com/STMicroelectronics/appconfig/blesensor_4.18/bluestsdkv2/\""
+            buildConfigField "String", "BLUESTSDK_DB_BASE_VERSION", "\"4.20.0\""
+            buildConfigField "String", "BLUESTSDK_DB_BASE_URL", "\"https://raw.githubusercontent.com/STMicroelectronics/appconfig/blesensor_4.20/bluestsdkv2/\""
             buildConfigField "String", "BLUESTSDK_DB_BASE_BETA_URL", "\"https://raw.githubusercontent.com/SW-Platforms/appconfig/release/bluestsdkv2/\""
         }
     }

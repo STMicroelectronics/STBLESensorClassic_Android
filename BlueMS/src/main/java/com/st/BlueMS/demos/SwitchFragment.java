@@ -94,7 +94,7 @@ public class SwitchFragment extends BaseDemoFragment {
     }
 
     private void setSwitchText(Node.Type nodeType){
-        if((nodeType == Node.Type.SENSOR_TILE_BOX) || (nodeType == Node.Type.SENSOR_TILE_BOX_PRO)){
+        if((nodeType == Node.Type.SENSOR_TILE_BOX) || (nodeType == Node.Type.SENSOR_TILE_BOX_PRO) || (nodeType == Node.Type.SENSOR_TILE_BOX_PROB)){
             mSwitchText.setText(R.string.switch_eventDescription);
         }else{
             mSwitchText.setText(R.string.switch_onOffDescription);

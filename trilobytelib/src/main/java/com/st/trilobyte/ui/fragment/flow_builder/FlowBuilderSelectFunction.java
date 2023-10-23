@@ -4,6 +4,8 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -117,9 +119,13 @@ public class FlowBuilderSelectFunction extends BuilderFragment {
             mFlowInputs.add(lastFunction.getId());
         }
 
+        //Log.i("AddFunction","tmpList="+filteredFunctionList.size()+" "+mFlowInputs.size());
         FunctionHelper.filterFunctionsByMandatoryInputs(filteredFunctionList, mFlowInputs);
+        //Log.i("AddFunction","tmpList="+filteredFunctionList.size());
         FunctionHelper.filterFunctionsByInputs(filteredFunctionList, mFlowInputs);
+        //Log.i("AddFunction","tmpList="+filteredFunctionList.size());
         FunctionHelper.filterFunctionByRepeatCount(currentFlow, filteredFunctionList);
+        //Log.i("AddFunction","tmpList="+filteredFunctionList.size());
 
         mRadioGroup = getView().findViewById(R.id.function_radiogroup);
         RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);

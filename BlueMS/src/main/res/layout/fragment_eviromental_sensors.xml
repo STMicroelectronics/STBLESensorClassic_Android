@@ -96,6 +96,15 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/thermometerSwitch" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Offset"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/textInputLayout3"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayout3" />
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayout3"
                         style="@style/BlueSTSDKInputTypeStyle"
@@ -168,6 +177,16 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Offset"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/textInputLayout"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayout" />
+
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayout"
                         style="@style/BlueSTSDKInputTypeStyle"
@@ -238,6 +257,15 @@
                         app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Offset"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/textInputLayout2"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayout2" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayout2"

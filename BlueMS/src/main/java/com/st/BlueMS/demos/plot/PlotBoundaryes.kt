@@ -64,6 +64,7 @@ internal data class PlotBoundary(
                 FeatureActivity::class to  PlotBoundary(FeatureActivity.DATA_MIN, FeatureActivity.DATA_MAX, (FeatureActivity.DATA_MAX-FeatureActivity.DATA_MIN).toInt()+1),
                 FeatureQVAR::class to PlotBoundary(nLabels = 21), //auto scale on
                 FeatureToFMultiObject::class to PlotBoundary( nLabels = 21), //auto scale on
+                FeatureEulerAngle::class to PlotBoundary( min= -90f, max =90f, nLabels = 11)
         )
 
         fun getDefaultFor(f:Feature): PlotBoundary {

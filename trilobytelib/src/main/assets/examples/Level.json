@@ -4,6 +4,8 @@
   "board_compatibility" : [
     "SENSOR_TILE_BOX"
   ],
+  "flows":[
+  ],
   "functions": [
     {
       "description": "Level",

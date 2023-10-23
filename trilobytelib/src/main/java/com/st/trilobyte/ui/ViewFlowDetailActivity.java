@@ -3,6 +3,8 @@ package com.st.trilobyte.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
+
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -157,9 +159,13 @@ public class ViewFlowDetailActivity extends TrilobyteActivity {
     }
 
     private void sendToBoard() {
-
+        if((mFlow.getExpression()!=null) && (mFlow.getStatements()!=null)) {
+            //Log.i("FlowUpload","setFlow No= "+mFlow.getStatements().toString());
+            //Log.i("FlowUpload","setExp No= "+mFlow.getExpression().toString());
+            Session.INSTANCE.setSession( mFlow.getStatements().get(0).getFlows(),mFlow.getExpression().getFlows().get(0));
+        } else {
         Session.INSTANCE.setSession(Collections.singletonList(mFlow), null);
-        
+        }
         Intent intent = UploadFlowActivity.Companion.provideIntent(this,mBoard);
         startActivity(intent);
     }

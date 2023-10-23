@@ -41,7 +41,8 @@ import androidx.annotation.NonNull;
 
 import com.st.blesensor.cloud.CloudIotClientConnectionFactory;
 
-import org.eclipse.paho.android.service.MqttAndroidClient;
+//import org.eclipse.paho.android.service.MqttAndroidClient;
+import info.mqtt.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
 

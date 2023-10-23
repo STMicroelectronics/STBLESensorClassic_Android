@@ -1,8 +1,9 @@
 {
-"description":"Human Activity recognition",
+"description":"Human Activity Recognition",
   "category": "AI & MLC",
   "board_compatibility" : [
-    "SENSOR_TILE_BOX_PRO"
+    "SENSOR_TILE_BOX_PRO",
+    "SENSOR_TILE_BOX_PROB"
   ],
 "flows":[
 ],
@@ -58,7 +59,8 @@ The algorithm runs at 60 Hz, with a window of 150 samples.",
     ],
     "model": "LSM6DSV16X",
    "board_compatibility" : [
-     "SENSOR_TILE_BOX_PRO"
+     "SENSOR_TILE_BOX_PRO",
+     "SENSOR_TILE_BOX_PROB"
    ],
     "um": "mg",
     "fullScaleUm": "g",
@@ -110,12 +112,7 @@ The algorithm runs at 60 Hz, with a window of 150 samples.",
     "configuration": {
       "powerMode": "LOW_POWER",
       "odr": 60,
-      "filters": {
-        "lowPass": {
-            "label": "700",
-            "value": 1
-          }
-      },
+      "filters": {},
       "fullScale": 2,
       "acquisitionTime": 0
     }
@@ -132,7 +129,8 @@ The algorithm runs at 60 Hz, with a window of 150 samples.",
     "icon": "ic_inemo",
     "model": "LSM6DSV16X",
     "board_compatibility" : [
-      "SENSOR_TILE_BOX_PRO"
+      "SENSOR_TILE_BOX_PRO",
+      "SENSOR_TILE_BOX_PROB"
     ],
     "um": "mdps",
     "fullScaleUm": "dps",
@@ -178,10 +176,10 @@ The algorithm runs at 60 Hz, with a window of 150 samples.",
       }
     ],
     "acquisitionTime": 0,
-    "bleMaxOdr": 52,
+    "bleMaxOdr": 60,
     "configuration": {
       "powerMode": "LOW_POWER",
-      "odr": 52,
+      "odr": 60,
       "fullScale": 2000,
       "acquisitionTime": 0
     }

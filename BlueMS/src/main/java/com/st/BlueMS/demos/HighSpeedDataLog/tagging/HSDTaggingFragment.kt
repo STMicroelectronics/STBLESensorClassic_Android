@@ -143,6 +143,7 @@ open class HSDTaggingFragment : Fragment() {
 
         viewModel.annotations.observe(viewLifecycleOwner, Observer {
             mAdapter.submitList(it)
+            mAdapter.notifyDataSetChanged()
         })
 
         viewModel.isSDCardInserted.observe(viewLifecycleOwner, Observer {isSDCardInserted ->

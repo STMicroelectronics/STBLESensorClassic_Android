@@ -1,5 +1,7 @@
 package com.st.trilobyte.ui.fragment.flow_builder;
 
+import android.graphics.Paint;
+import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -93,6 +95,9 @@ public class FlowBuilderSelectOutput extends BuilderFragment {
         List<Set<String>> setList = new ArrayList<>();
         getAvailableOutputs(flow, setList);
 
+        List<Sensor> sensorsList  = new ArrayList<>();
+        sensorsList = flow.getSensors();
+
         List<String> outputIds;
 
         if (setList.isEmpty()) {
@@ -114,7 +119,7 @@ public class FlowBuilderSelectOutput extends BuilderFragment {
             }
         }
 
-        fillView(availableOutputs);
+        fillView(availableOutputs,sensorsList);
     }
 
     private void getAvailableOutputs(Flow flow, List<Set<String>> outputs) {
@@ -148,7 +153,7 @@ public class FlowBuilderSelectOutput extends BuilderFragment {
         return availableOutputs;
     }
 
-    private void fillView(List<Output> outputs) {
+    private void fillView(List<Output> outputs, List<Sensor> sensorsList) {
         LinearLayout outputContainer = getView().findViewById(R.id.outputs_container);
         outputContainer.removeAllViews();
 
@@ -159,6 +164,26 @@ public class FlowBuilderSelectOutput extends BuilderFragment {
             outputNameTextview.setText(output.getDescription());
 
             CheckBox checkBox = view.findViewById(R.id.checkbox);
+
+            checkBox.setClickable(true);
+            checkBox.setVisibility(View.VISIBLE);
+            outputNameTextview.setPaintFlags(outputNameTextview.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+
+            if(output.getId().equals("O3")) {
+                for(final Sensor sensor: sensorsList) {
+                    if((sensor.getConfiguration().getOdr()!=null) && (sensor.getBleMaxOdr()!=null)) {
+                        if(sensor.getConfiguration().getOdr()>sensor.getBleMaxOdr()) {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                                checkBox.setClickable(false);
+                                checkBox.setVisibility(View.INVISIBLE);
+                                selectedOutputs.remove(output);
+                                outputNameTextview.setPaintFlags(outputNameTextview.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                            }
+                        }
+                    }
+                }
+            }
+
             checkBox.setChecked(selectedOutputs.contains(output));
 
             checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

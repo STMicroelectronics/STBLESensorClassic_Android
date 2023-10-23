@@ -86,7 +86,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * if present the data from the proximity sensor will be used for change the cube size
  * </p>
  */
-@DemoDescriptionAnnotation(name="Mems Sensor Fusion",
+@DemoDescriptionAnnotation(name="MEMS Sensor Fusion",
         iconRes=R.drawable.demo_sensors_fusion,
         demoCategory = {"Inertial Sensors"},
        requireOneOf = {FeatureMemsSensorFusion.class,FeatureMemsSensorFusionCompact.class})
@@ -524,8 +524,11 @@ public class MemsSensorFusionFragment extends BaseDemoFragment implements Calibr
             case SENSOR_TILE:
                 return buildResetInfoDialog(R.string.memsSensorFusionDialogResetText_nucleo,
                     R.drawable.ic_board_sensortile_bg);
-            case SENSOR_TILE_BOX:
-            case SENSOR_TILE_BOX_PRO://for .box-Pro this must be changed
+            case SENSOR_TILE_BOX_PRO:
+            case SENSOR_TILE_BOX_PROB:
+                return buildResetInfoDialog(R.string.memsSensorFusionDialogResetText_nucleo,
+                        R.drawable.box_pro_case_top);
+            case SENSOR_TILE_BOX://for .box-Pro this must be changed
                 return buildResetInfoDialog(R.string.memsSensorFusionDialogResetText_nucleo,
                         R.drawable.ic_sensortile_box);
             case NUCLEO:

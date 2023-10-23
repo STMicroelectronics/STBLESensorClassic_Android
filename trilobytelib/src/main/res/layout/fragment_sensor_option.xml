@@ -104,7 +104,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/extra_margin"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <TextView
                     style="@style/Text.Bold.Label"
@@ -120,7 +121,8 @@
                     android:layout_marginTop="@dimen/default_margin"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    tools:visibilty="visible">
 
                     <CheckBox
                         android:id="@+id/custom_odr_checkbox"
@@ -141,11 +143,23 @@
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
 
+
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:id="@+id/odr_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/double_maring"/>
+
+                <TextView
+                    android:id="@+id/odr_ble_out_available"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Stream to BLE not available"
+                    android:textColor="@color/dotRed"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/default_margin"/>
 
             </LinearLayout>
 
@@ -178,7 +192,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/extra_margin"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <TextView
                     style="@style/Text.Bold.Label"
@@ -202,7 +217,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/extra_margin"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <TextView
                     style="@style/Text.Bold.Label"
@@ -224,7 +240,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/extra_margin"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <TextView
                     style="@style/Text.Bold.Label"

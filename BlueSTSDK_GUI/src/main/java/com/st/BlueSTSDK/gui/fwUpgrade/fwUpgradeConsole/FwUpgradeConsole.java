@@ -119,7 +119,9 @@ public abstract class FwUpgradeConsole {
                 case STEVAL_STWINKIT1:
                 case STEVAL_STWINKT1B:
                 case STWIN_BOX:
+                case STWIN_BOXB:
                 case SENSOR_TILE_BOX_PRO:
+                case SENSOR_TILE_BOX_PROB:
                 case DISCOVERY_IOT01A:
                     //Normal Fota
                     return new FwUpgradeConsoleNucleo(debug,fw_details);

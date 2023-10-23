@@ -503,6 +503,7 @@ class ExtConfigurationFragment : BaseDemoFragment(), CustomCommandAdapter.OnItem
                     //Remove the fw with the same name and version of the current one on the other bank
                     listFwCompatible =
                         listFwCompatible.filter { (it.fw_name != fwDetails2.fw_name) || (it.fw_version != fwDetails2.fw_version) }
+                            .sortedBy { it.fw_name }
                 }
 
                 if (listFwUpdate != null) {
@@ -758,12 +759,6 @@ class ExtConfigurationFragment : BaseDemoFragment(), CustomCommandAdapter.OnItem
     }
 
     override fun enableNeededNotification(node: Node) {
-
-        showIntroductionMessage(
-            "In this section it's possible to configure the Firmware running on the board",
-            context
-        )
-
         viewModel.enableNotification(node)
     }
 

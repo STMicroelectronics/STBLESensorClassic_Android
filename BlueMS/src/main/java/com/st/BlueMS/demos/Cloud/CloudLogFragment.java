@@ -47,6 +47,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentManager;
@@ -896,7 +897,7 @@ public class CloudLogFragment extends DemoWithNetFragment implements
     private void onUploadCloudLogClick(View v) {
         Log.i("CloudFragment", "onUploadCloudLogClick");
         stopAllNotification();
-        mCloudConnectionFactory.upload(this.requireActivity().getActivityResultRegistry(), this.requireActivity(), requireContext(), mMqttClient);
+        mCloudConnectionFactory.upload(this.requireActivity().getActivityResultRegistry(), (AppCompatActivity) this.requireActivity(), requireContext(), mMqttClient);
     }
 
     /**

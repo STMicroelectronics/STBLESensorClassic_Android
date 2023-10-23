@@ -406,7 +406,7 @@ public class NodeListActivity extends com.st.BlueSTSDK.gui.NodeListActivity {
             startActivity(DemosActivityWesu.getStartIntent(this, n, options));
         else if (STM32OTASupport.isOTANode(n, getApplicationContext())) {
             startActivity(FwUpgradeSTM32WBActivity.getStartIntent(this, n, null, null, null));
-        } else if ((n.getType() == Node.Type.SENSOR_TILE_BOX) || (n.getType() == Node.Type.SENSOR_TILE_BOX_PRO)) {
+        } else if ((n.getType() == Node.Type.SENSOR_TILE_BOX) || (n.getType() == Node.Type.SENSOR_TILE_BOX_PRO) || (n.getType() == Node.Type.SENSOR_TILE_BOX_PROB)) {
             displayPinWarningsAndConnect(n, options);
         } else {
             startActivity(DemosActivity.getStartIntent(this, n, options));

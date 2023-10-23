@@ -1,9 +1,7 @@
 package com.st.BlueSTSDK.Utils
 
-import android.util.Log
 import java.io.ByteArrayOutputStream
 import com.st.BlueSTSDK.Debug
-import kotlin.math.max
 
 class STL2TransportProtocol {
     private var currentMessage: ByteArrayOutputStream? = null
